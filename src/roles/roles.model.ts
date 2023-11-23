@@ -15,11 +15,11 @@ export class Role extends Model<Role, UserCreationProps> {
   id: number;
 
   @ApiProperty({example: 'ADMIN', description: 'Unique role'})
-  @Column({type: DataType.STRING, unique: true, allowNull: true})
+  @Column({type: DataType.STRING, unique: true, allowNull: false})
   value: string;
 
   @ApiProperty({example: 'Administrator', description: "Role's description"})
-  @Column({type: DataType.STRING, unique: true, allowNull: true})
+  @Column({type: DataType.STRING, unique: true, allowNull: false})
   description: string;
 
   @BelongsToMany(() => User, () => UserRoles)

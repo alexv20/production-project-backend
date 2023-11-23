@@ -16,15 +16,15 @@ export class User extends Model<User, UserCreationProps> {
   id: number;
 
   @ApiProperty({example: 'test@test.ru', description: 'email'})
-  @Column({type: DataType.STRING, unique: true, allowNull: true})
+  @Column({type: DataType.STRING, unique: true, allowNull: false})
   email: string;
 
   @ApiProperty({example: 'user007', description: 'unique username'})
-  @Column({type: DataType.STRING, unique: true, allowNull: true})
+  @Column({type: DataType.STRING, unique: true, allowNull: false})
   username: string;
 
   @ApiProperty({example: 'qwerty123', description: 'password'})
-  @Column({type: DataType.STRING, allowNull: true})
+  @Column({type: DataType.STRING, allowNull: false})
   password: string;
 
   @BelongsToMany(() => Role, () => UserRoles)
